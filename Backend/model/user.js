@@ -9,10 +9,10 @@ const UserSchema = new mongoose.Schema({
             type: String,
             required: true,
             minlength: [3, 'First Name must be atleast 3 charaters']
-        }, lastName: {
+        }, lastname: {
             type: String,
             required: true,
-            minlenght: [3, 'Last name must be atlest 3 charaters']
+            minlength: [3, 'Last name must be atlest 3 charaters']
         }
     },
     email: {
@@ -40,7 +40,7 @@ UserSchema.methods.comparePassword = async function (password) {
     return await bcrypt.compare(password,this.password);
 }
 
-UserSchema.static.hashPassword=async function (password) {
+UserSchema.statics.hashPassword=async function (password) {
     return await bcrypt.hash(password,10);
 }
 

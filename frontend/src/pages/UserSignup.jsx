@@ -12,7 +12,7 @@ const UserSignup = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     setUserData({
-      userName: {
+      fullName: {
         firstName: firstName,
         lastName: lastName
       },
@@ -36,7 +36,7 @@ const UserSignup = () => {
           submitHandler(e);
         }}>
           <h3 className='text-lg font-medium mb-2'>What's your Name:</h3>
-          <div className='flex gap-4 bm-6'>
+          <div className='flex w-full gap-4 bm-6'>
             <input
               required
               className='bg-[#eeee] mb-6 w-1/2 rounded px-4 py-2 broder text-lg placeholder:text-base'
@@ -87,10 +87,9 @@ const UserSignup = () => {
         </form>
       </div>
       <div>
-        <p className='text-[10px] leading-tight'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Numquam, delectus! Odit iste necessitatibus quos, blanditiis,
-          dicta eius mollitia ratione et dolor nesciunt quia laudantium
-          corporis iusto!</p>
+        <p className='text-[10px] leading-tight'>This side is protected by reCAPTCHA
+          and the <span className='underline'>Google Privacy Policy </span> and the
+          <span className='underline'>Terms of Service apply.</span></p>
       </div>
     </div>
   )

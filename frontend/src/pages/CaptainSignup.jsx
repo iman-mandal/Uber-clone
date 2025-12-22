@@ -11,7 +11,7 @@ const CaptainSignup = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     setUserData({
-      userName: {
+      fullName: {
         firstName: firstName,
         lastName: lastName
       },
@@ -32,7 +32,7 @@ const CaptainSignup = () => {
         <form onSubmit={(e) => {
           submitHandler(e);
         }}>
-          <h3 className='text-lg font-medium mb-2'>What's your Name:</h3>
+          <h3 className='text-lg font-medium mb-2'>What's your Captain's Name:</h3>
           <div className='flex gap-4 bm-6'>
             <input
               required
@@ -55,7 +55,7 @@ const CaptainSignup = () => {
               placeholder='Lastname'
             />
           </div>
-          <h3 className='text-lg font-medium mb-2'>What's your email</h3>
+          <h3 className='text-lg font-medium mb-2'>What's your Captain's email</h3>
           <input
             required
             className='bg-[#eeee] mb-6 rounded px-4 py-2 broder w-full text-lg placeholder:text-base'
@@ -85,7 +85,8 @@ const CaptainSignup = () => {
       </div>
       <div>
         <p className='text-[10px] leading-tight'>This side is protected by reCAPTCHA
-          and the <span className='underline'>Google Privacy Policy </span> and the <span className='underline'>Terms of Service apply.</span></p>
+          and the <span className='underline'>Google Privacy Policy </span> and the
+          <span className='underline'>Terms of Service apply.</span></p>
       </div>
     </div>
   )

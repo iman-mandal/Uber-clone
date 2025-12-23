@@ -28,8 +28,9 @@ module.exports.registerCaptain = async (req, res, next) => {
     });
     console.log('Captain registation sucessfully');
     const token = captain.generateAuthToken();
-    console.log('Token:', token);
-    return res.status(201).json(captain, token);
+    console.log('Login Sucessfully');
+    res.cookie('token', token);
+    res.status(200).json({ token: token, captain: captain });
 }
 
 // Login Captain controller

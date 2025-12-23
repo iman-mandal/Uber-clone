@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserDataContext } from '../Context/userContext';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const UserProtectWrapper = ({ children }) => {
     const token = localStorage.getItem('token');
@@ -12,8 +13,31 @@ const UserProtectWrapper = ({ children }) => {
         if (!token) {
             navigate('/login');
         }
-    }, [token]);
+        axios.get(`${import.meta.env.VITE_BASE_URL}/user/profile`, {
+            headers: {
+                Authorization: `Bearer${token}`
+            }
+        }).then((response) => {
+            if (response.status === 200) {
+                const data = response.data;
+                setUser(data.user);
+                setIsLoading(false);
+            }
+        }).catch(err => {
+            console.log(err);
+            localStorage.removeItem('token');
+            navigate('/login');
+        })
+    },[token]);
     
+    if(isLoading){
+        return(
+            <div>
+                Loading...
+            </div>
+        )
+    }
+
     return (
         <>
             {children}

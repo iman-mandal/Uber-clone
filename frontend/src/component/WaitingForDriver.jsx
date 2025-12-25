@@ -1,4 +1,5 @@
 import React from 'react'
+import 'remixicon/fonts/remixicon.css'
 
 const WaitingForDriver = (props) => {
     return (
@@ -11,7 +12,7 @@ const WaitingForDriver = (props) => {
                     className='p-1 text-center absolute top-0 w-[90%]'>
                     <i className='ri-arrow-down-wide-line text-3xl text-gray-200'></i>
                 </h5>
-                <div className='flex items-center justify-between'>
+                <div className='flex w-full items-center justify-between'>
                     <img className='h-10' src="https://www.pngplay.com/wp-content/uploads/8/Uber-PNG-Photos.png" alt="car img" />
                     <div className='text-right'>
                         <h2 className='text-lg font-medium'>Rahul</h2>

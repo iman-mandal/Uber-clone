@@ -23,7 +23,6 @@ module.exports.registerUser = async (req, res, next) => {
     });
     console.log("Your Registion is Sucessfully Completed")
     const token = user.genarateAuthToken();
-    console.log('Login Sucessfully');
     res.cookie('token', token);
     res.status(200).json({ token: token, user: user });
 }

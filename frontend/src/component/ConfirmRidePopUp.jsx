@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import 'remixicon/fonts/remixicon.css'
 
 const ConfirmRidePopUp = (props) => {
+    const [otp,setOtp]=useState();
+    const submitHandler=(e)=>{
+         e.preventDefault();
+
+    }
     return (
         <div>
             <h5
@@ -47,16 +52,21 @@ const ConfirmRidePopUp = (props) => {
                         <form onSubmit={(e) => {
                             submitHandler(e)
                         }}>
-                            <input type="text"
+                            <input 
+                            value={otp}
+                            onChange={(e)=>{
+                                setOtp(e.target.value)
+                            }}
+                             type="text"
                                 className='bg-[#eeee] px-6 py-4 font-mono text-base rounded-lg w-full mt-3'
                                 placeholder='Enter OTP'
                             />
-                            <Link to='/captain-riding' className='w-full flex justify-center mt-5 p-2 rounded-lg bg-green-600 text-white font-semibold'>
+                            <Link to='/captain-riding' className='w-full text-lg flex justify-center mt-5 p-2 rounded-lg bg-green-600 text-white font-semibold'>
                                 Confirm
                             </Link>
                             <button onClick={() => {
                                 props.setRidePopUpPanel(false)
-                            }} className='w-full mt-3 p-2 rounded-lg bg-red-400 text-white font-semibold'>
+                            }} className='w-full mt-3 p-2 text-lg rounded-lg bg-red-400 text-white font-semibold'>
                                 Cancel
                             </button>
                         </form>

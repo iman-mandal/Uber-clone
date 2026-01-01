@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import 'remixicon/fonts/remixicon.css'
 
-const RidePopUp = (props) => {
+const ConfirmRidePopUp = (props) => {
     return (
         <div>
             <h5
@@ -11,7 +12,7 @@ const RidePopUp = (props) => {
                 className='p-1 text-center absolute top-0 w-[90%]'>
                 <i className='ri-arrow-down-wide-line text-3xl text-gray-200'></i>
             </h5>
-            <h3 className="text-2xl font-semibold">New Ride Available</h3>
+            <h3 className="text-2xl font-semibold">Confirm this Ride to Start</h3>
             <div className='flex items-center justify-between mt-4 bg-yellow-200 rounded-lg p-4'>
                 <div className='flex items-center gap-3'>
                     <img className='h-10 w-10 object-cover rounded-full' src="https://m.media-amazon.com/images/I/51sHict9JGL._AC_UF894,1000_QL80_.jpg" alt="User img" />
@@ -42,19 +43,23 @@ const RidePopUp = (props) => {
                             <p className='text-sm -mt-1 text-gray-600'>Cash</p>
                         </div>
                     </div>
-                    <div className='flex w-full mt-5 justify-between items-center'>
-                        <button onClick={() => {
-                            props.setConfirmRidePopUpPanel(true);
-                        }}
-                            className=' p-3 px-10 rounded-lg bg-green-600 text-white font-semibold'>
-                            Accept
-                        </button>
-                        <button onClick={() => {
-                            props.setRidePopUpPanel(false)
-                            props.setConfirmRidePopUpPanel(false);
-                        }} className=' p-3 px-10 rounded-lg bg-gray-300 text-gray-700 font-semibold'>
-                            Ignore
-                        </button>
+                    <div className='mt-6 w-full'>
+                        <form onSubmit={(e) => {
+                            submitHandler(e)
+                        }}>
+                            <input type="text"
+                                className='bg-[#eeee] px-6 py-4 font-mono text-base rounded-lg w-full mt-3'
+                                placeholder='Enter OTP'
+                            />
+                            <Link to='/captain-riding' className='w-full flex justify-center mt-5 p-2 rounded-lg bg-green-600 text-white font-semibold'>
+                                Confirm
+                            </Link>
+                            <button onClick={() => {
+                                props.setRidePopUpPanel(false)
+                            }} className='w-full mt-3 p-2 rounded-lg bg-red-400 text-white font-semibold'>
+                                Cancel
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -62,5 +67,4 @@ const RidePopUp = (props) => {
     )
 }
 
-export default RidePopUp
-
+export default ConfirmRidePopUp
